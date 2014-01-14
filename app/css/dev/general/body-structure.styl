@@ -1,0 +1,76 @@
+header
+  margin-bottom 20px
+
+.navigation-bar--left-button
+  display block
+  text-decoration none
+  color #288edf
+  overflow hidden
+  text-overflow ellipsis
+
+.navigation-bar--left-button:active
+  color #288edf
+
+.navigation-bar--button
+  font-size 30px
+  position relative
+  top 7px
+  color #288edf
+
+main
+  padding 0 1rem
+  flex 1
+
+#wrapper
+  width 100%
+  height 100%
+  overflow-x hidden
+  background inherit
+  position relative
+
+#site
+  width 100%
+  min-height 100%
+  position relative
+  z-index 10
+  background inherit
+  left 0
+  transition all 0.2s ease-out
+  display flex
+  flex-direction column
+
+#site:before
+  position relative
+  content ''
+  left -4px
+  height 100%
+  width 4px
+  background #3B3E3E
+
+#site.open
+  transform translate3d(250px, 0, 0)
+
+#sideNav
+  background #4A4D4E
+  position absolute
+  z-index 1
+  left 0
+  height 100%
+  width 100%
+
+#sideNav ul
+  list-style none
+  margin 0
+  padding 0
+
+#pageNav li
+  border-bottom 1px solid #58595A
+
+#sideNav li a
+  color #F0F1F1
+  display block
+  height 46px
+  font-size 16px
+  box-sizing border-box
+  padding 12px 0 0 20px
+  text-decoration none

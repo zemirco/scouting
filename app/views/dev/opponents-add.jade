@@ -1,0 +1,36 @@
+//- set title for header / navigation bar
+title = 'Add opponent'
+//- show back button in navigation bar
+showBackIcon = true
+//- target url for back button
+backTargetUrl = '#/opponents'
+//- title for previous page
+backTitle = 'Opponents'
+//- include header
+include includes/header
+
+//- start own template
+main
+  form
+    div.form-group
+      label(for="first") Player 1
+      input#first.topcoat-text-input.full(type="text", placeholder="First name [optional]", ng-model="opponents[0].firstname")
+    div.form-group
+      input.topcoat-text-input.full(type="text", placeholder="Last name", ng-model="opponents[0].lastname")
+    div.form-group
+      label(for="second") Player 2
+      input#second.topcoat-text-input.full(type="text", placeholder="First name [optional]", ng-model="opponents[1].firstname")
+    div.form-group
+      input.topcoat-text-input.full(type="text", placeholder="Last name", ng-model="opponents[1].lastname")
+
+//- show alert when opponent team was saved
+div.container(class="fadeOut", ng-if="saveSuccessAlert")
+  div.alert.alert-success.center
+    span Saved new opponent team
+
+div.container
+  div.row
+    div.col-xs-5
+      button.topcoat-button.full(ng-click="clear()") Clear
+    div.col-xs-7
+      button.topcoat-button--cta.full(ng-click="save()") Save

@@ -1,0 +1,31 @@
+//- set title for header / navigation bar
+title = 'New Match'
+//- show back button in navigation bar
+showBackIcon = true
+//- target url for back button
+backTargetUrl = '#/'
+//- title for previous page
+backTitle = 'Start'
+//- include header
+include includes/header
+
+//- start own template
+main
+  form
+    div.form-group
+      input.topcoat-text-input.full(type="text", placeholder="Semifinal Olympia 2012", ng-model="title")
+    div.form-group
+      input.topcoat-text-input.full(type="text", placeholder="London", ng-model="location")
+    div.form-group
+      input.topcoat-date-input.full(type="date", ng-model="date")
+    div.form-group
+      select.topcoat-input-select.full
+        option(value="") -- select a team --
+        option(value="") Value One
+        option(value="") Value Two
+div.container
+  div.row
+    div.col-xs-5
+      button.topcoat-button.full(ng-click="cancel()") Cancel
+    div.col-xs-7
+      button.topcoat-button--cta.full Save

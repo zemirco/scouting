@@ -1,0 +1,37 @@
+//- set title for header / navigation bar
+title = 'Edit opponent'
+//- show back button in navigation bar
+showBackIcon = true
+//- target url for back button
+backTargetUrl = '#/opponents'
+//- title for previous page
+backTitle = 'Opponents'
+//- include header
+include includes/header
+
+main
+  form
+    div.form-group
+      label(for="first") Player 1
+      input#first.topcoat-text-input.full(type="text", placeholder="First name [optional]", ng-model="opponent.players[0].firstname")
+    div.form-group
+      input.topcoat-text-input.full(type="text", placeholder="Last name", ng-model="opponent.players[0].lastname")
+    div.form-group
+      label(for="second") Player 2
+      input#second.topcoat-text-input.full(type="text", placeholder="First name [optional]", ng-model="opponent.players[1].firstname")
+    div.form-group
+      input.topcoat-text-input.full(type="text", placeholder="Last name", ng-model="opponent.players[1].lastname")
+
+//- show alert when opponent team was updated
+div.container(class="fadeOut", ng-if="updateSuccessAlert")
+  div.alert.alert-success.center
+    span Updated opponent team
+
+div.container
+  div.row
+    div.col-xs-5
+      button.topcoat-button.full(ng-click="remove()")
+        span.icon.icon-button.icon-ios7-trash-outline
+    div.col-xs-7
+      button.topcoat-button--cta.full(ng-click="update()")
+        span.icon.icon-button.icon-checkmark

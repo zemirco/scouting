@@ -1,0 +1,13 @@
+//- header with navigation bar
+header
+  div.topcoat-navigation-bar
+    div.topcoat-navigation-bar__item.full
+      div.navigation-bar--row
+        div.navigation-bar--left
+          if showBackIcon
+            a.navigation-bar--left-button(href= backTargetUrl)
+              span.icon-ios7-arrow-left.navigation-bar--button
+              span= backTitle
+        div.navigation-bar--middle
+          h1.topcoat-navigation-bar__title= title
+        div.navigation-bar--right

@@ -1,0 +1,45 @@
+
+<header>
+  <div class="topcoat-navigation-bar">
+    <div class="topcoat-navigation-bar__item full">
+      <div class="navigation-bar--row">
+        <div class="navigation-bar--left"><a href="#/" class="navigation-bar--left-button"><span class="icon-ios7-arrow-left navigation-bar--button"></span><span>Start</span></a>
+        </div>
+        <div class="navigation-bar--middle">
+          <h1 class="topcoat-navigation-bar__title">New Match</h1>
+        </div>
+        <div class="navigation-bar--right"></div>
+      </div>
+    </div>
+  </div>
+</header>
+<main>
+  <form>
+    <div class="form-group">
+      <input type="text" placeholder="Semifinal Olympia 2012" ng-model="title" class="topcoat-text-input full"/>
+    </div>
+    <div class="form-group">
+      <input type="text" placeholder="London" ng-model="location" class="topcoat-text-input full"/>
+    </div>
+    <div class="form-group">
+      <input type="date" ng-model="date" class="topcoat-date-input full"/>
+    </div>
+    <div class="form-group">
+      <select class="topcoat-input-select full">
+        <option value="">-- select a team --</option>
+        <option value="">Value One</option>
+        <option value="">Value Two</option>
+      </select>
+    </div>
+  </form>
+</main>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-5">
+      <button ng-click="cancel()" class="topcoat-button full">Cancel</button>
+    </div>
+    <div class="col-xs-7">
+      <button class="topcoat-button--cta full">Save</button>
+    </div>
+  </div>
+</div>

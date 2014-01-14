@@ -1,0 +1,35 @@
+//- set title for header / navigation bar
+title = 'Opponents'
+//- show back button in navigation bar
+showBackIcon = true
+//- target url for back button
+backTargetUrl = '#/'
+//- title for previous page
+backTitle = 'Start'
+//- include header
+include includes/header
+
+div.center(ng-hide="rows", ng-cloak)
+  p You don't have any opponent teams. Start by clicking "Add opponent team" below.
+
+//- show alert when opponent team was removed
+div.container(class="fadeOut", ng-if="removedAlert")
+  div.alert.alert-warning.center
+    span Opponent team deleted. 
+    a.alert-link(href="", ng-click="undo()") Undo
+
+//- iterate over teams and show them in list-group
+div.list-group
+  a.list-group--item(ng-repeat="row in rows", ng-click="goToOpponentTeam(row.value.uuid)")
+    span.list-group--item-text {{$index+1}}. {{row.value.players[0].lastname}} / {{row.value.players[1].lastname}}
+    span.list-group--icon-right.icon-chevron-right
+
+br
+
+//- buttons with "Add opponent team"
+div.container
+  div.row
+    div.col-xs-12
+      button.topcoat-button--cta.full(ng-click="addOpponentTeam()")
+        span.icon.icon-button.icon-ios7-plus-outline
+        span.text-after-icon Add opponent team

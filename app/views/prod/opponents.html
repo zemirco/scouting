@@ -1,0 +1,29 @@
+
+<header>
+  <div class="topcoat-navigation-bar">
+    <div class="topcoat-navigation-bar__item full">
+      <div class="navigation-bar--row">
+        <div class="navigation-bar--left"><a href="#/" class="navigation-bar--left-button"><span class="icon-ios7-arrow-left navigation-bar--button"></span><span>Start</span></a>
+        </div>
+        <div class="navigation-bar--middle">
+          <h1 class="topcoat-navigation-bar__title">Opponents</h1>
+        </div>
+        <div class="navigation-bar--right"></div>
+      </div>
+    </div>
+  </div>
+</header>
+<div ng-hide="rows" ng-cloak="ng-cloak" class="center">
+  <p>You don't have any opponent teams. Start by clicking "Add opponent team" below.</p>
+</div>
+<div ng-if="removedAlert" class="container fadeOut">
+  <div class="alert alert-warning center"><span>Opponent team deleted. </span><a href="" ng-click="undo()" class="alert-link">Undo</a></div>
+</div>
+<div class="list-group"><a ng-repeat="row in rows" ng-click="goToOpponentTeam(row.value.uuid)" class="list-group--item"><span class="list-group--item-text">{{$index+1}}. {{row.value.players[0].lastname}} / {{row.value.players[1].lastname}}</span><span class="list-group--icon-right icon-chevron-right"></span></a></div><br/>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <button ng-click="addOpponentTeam()" class="topcoat-button--cta full"><span class="icon icon-button icon-ios7-plus-outline"></span><span class="text-after-icon">Add opponent team</span></button>
+    </div>
+  </div>
+</div>

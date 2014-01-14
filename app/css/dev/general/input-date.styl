@@ -1,0 +1,27 @@
+@import 'topcoat-files/variables-shared'
+@import 'topcoat-files/variables-mobile'
+@import 'topcoat-files/variables-light'
+@import 'topcoat-files/input'
+@import 'topcoat-files/topcoat-text-input'
+
+.topcoat-date-input
+  @extend .topcoat-text-input
+  -webkit-appearance none
+
+.topcoat-date-input:focus
+  @extend .topcoat-text-input:focus
+
+.topcoat-date-input:disabled
+  @extend .input:disabled
+
+.topcoat-text-input:disabled::-webkit-input-placeholder
+  color var-color--focus
+
+.topcoat-text-input:disabled::-moz-placeholder
+  color var-color--focus
+
+.topcoat-text-input:disabled:-ms-input-placeholder
+  color var-color--focus
+
+.topcoat-text-input:invalid
+  border var-border--invalid

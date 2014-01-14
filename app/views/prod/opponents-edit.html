@@ -1,0 +1,46 @@
+
+<header>
+  <div class="topcoat-navigation-bar">
+    <div class="topcoat-navigation-bar__item full">
+      <div class="navigation-bar--row">
+        <div class="navigation-bar--left"><a href="#/opponents" class="navigation-bar--left-button"><span class="icon-ios7-arrow-left navigation-bar--button"></span><span>Opponents</span></a>
+        </div>
+        <div class="navigation-bar--middle">
+          <h1 class="topcoat-navigation-bar__title">Edit opponent</h1>
+        </div>
+        <div class="navigation-bar--right"></div>
+      </div>
+    </div>
+  </div>
+</header>
+<main>
+  <form>
+    <div class="form-group">
+      <label for="first">Player 1</label>
+      <input id="first" type="text" placeholder="First name [optional]" ng-model="opponent.players[0].firstname" class="topcoat-text-input full"/>
+    </div>
+    <div class="form-group">
+      <input type="text" placeholder="Last name" ng-model="opponent.players[0].lastname" class="topcoat-text-input full"/>
+    </div>
+    <div class="form-group">
+      <label for="second">Player 2</label>
+      <input id="second" type="text" placeholder="First name [optional]" ng-model="opponent.players[1].firstname" class="topcoat-text-input full"/>
+    </div>
+    <div class="form-group">
+      <input type="text" placeholder="Last name" ng-model="opponent.players[1].lastname" class="topcoat-text-input full"/>
+    </div>
+  </form>
+</main>
+<div ng-if="updateSuccessAlert" class="container fadeOut">
+  <div class="alert alert-success center"><span>Updated opponent team</span></div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-5">
+      <button ng-click="remove()" class="topcoat-button full"><span class="icon icon-button icon-ios7-trash-outline"></span></button>
+    </div>
+    <div class="col-xs-7">
+      <button ng-click="update()" class="topcoat-button--cta full"><span class="icon icon-button icon-checkmark"></span></button>
+    </div>
+  </div>
+</div>

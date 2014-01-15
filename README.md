@@ -4,7 +4,7 @@
 
 `selenium/` folder is not included to save space. It contains:
 
- - chromedriver
+ - chromedriver (Version 2.8)
  - chromedriver_mac32_2.2.zip
  - selenium-server-standalone-2.35.0.jar
  - start
@@ -20,3 +20,7 @@ The following [plugins](http://docs.phonegap.com/en/3.3.0/guide_cli_index.md.htm
 1. Run `grunt ios` to create HTML / CSS files and copy them to the `cordova/.../www` folder
 2. Use cordova to create the app `cordova build ios`
 3. Open Xcode and start the app inside the emulator
+
+## Test
+
+`grunt test`

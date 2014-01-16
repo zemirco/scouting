@@ -3,8 +3,10 @@
 angular.module('app').factory('opponents', ['$rootScope', '$q', 'pouchdb', function($rootScope, $q, pouchdb) {
 
   return {
-
-    //----- save a new opponent team to db
+    
+    /**
+     * save a new opponent team to db
+     */
     save: function(team) {
 
       // init $q
@@ -33,8 +35,10 @@ angular.module('app').factory('opponents', ['$rootScope', '$q', 'pouchdb', funct
       return deferred.promise;
 
     },
-
-    //----- get all opponent teams from db
+    
+    /**
+     * get all opponent teams from db
+     */
     getAllByOwner: function(owner) {
 
       // init $q
@@ -66,8 +70,10 @@ angular.module('app').factory('opponents', ['$rootScope', '$q', 'pouchdb', funct
       return deferred.promise;
 
     },
-
-    //----- update an existing opponent team
+    
+    /**
+     * update an existing opponent team
+     */
     update: function(uuid, doc) {
 
       var deferred = $q.defer();
@@ -101,7 +107,9 @@ angular.module('app').factory('opponents', ['$rootScope', '$q', 'pouchdb', funct
 
     },
 
-    //----- delete an opponent team from db
+    /**
+     * delete an opponent team from db
+     */
     remove: function(uuid) {
 
       var deferred = $q.defer();
@@ -134,7 +142,9 @@ angular.module('app').factory('opponents', ['$rootScope', '$q', 'pouchdb', funct
 
     },
 
-    //----- get a single opponent team from db
+    /**
+     * get a single opponent team from db
+     */
     get: function(uuid) {
 
       var deferred = $q.defer();
@@ -160,7 +170,9 @@ angular.module('app').factory('opponents', ['$rootScope', '$q', 'pouchdb', funct
 
     },
 
-    //- take a former pouchdb object and save it back to pouchdb
+    /**
+     * take a former pouchdb object and save it back to pouchdb
+     */
     revive: function(opponent) {
 
       var deferred = $q.defer();

@@ -23,4 +23,5 @@ The following [plugins](http://docs.phonegap.com/en/3.3.0/guide_cli_index.md.htm
 
 ## Test
 
-`grunt test`
+1. Start the server in one terminal window `grunt server`
+2. Run the tests with `grunt test`

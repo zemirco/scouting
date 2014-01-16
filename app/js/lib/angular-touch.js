@@ -1,6 +1,6 @@
 /**
- * @license AngularJS v1.2.0-rc.3
- * (c) 2010-2012 Google, Inc. http://angularjs.org
+ * @license AngularJS v1.2.9
+ * (c) 2010-2014 Google, Inc. http://angularjs.org
  * License: MIT
  */
 (function(window, angular, undefined) {'use strict';
@@ -12,18 +12,23 @@
    *
    * # ngTouch
    *
-   * `ngTouch` is the name of the optional Angular module that provides touch events and other
-   * helpers for touch-enabled devices.
+   * The `ngTouch` module provides touch events and other helpers for touch-enabled devices.
    * The implementation is based on jQuery Mobile touch event handling
-   * ([jquerymobile.com](http://jquerymobile.com/))
+   * ([jquerymobile.com](http://jquerymobile.com/)).
    *
    * {@installModule touch}
    *
    * See {@link ngTouch.$swipe `$swipe`} for usage.
+   *
+   * <div doc-module-components="ngTouch"></div>
+   *
    */
 
 // define ngTouch module
+  /* global -ngTouch */
   var ngTouch = angular.module('ngTouch', []);
+
+  /* global ngTouch: false */
 
   /**
    * @ngdoc object
@@ -51,9 +56,9 @@
     function getCoordinates(event) {
       var touches = event.touches && event.touches.length ? event.touches : [event];
       var e = (event.changedTouches && event.changedTouches[0]) ||
-        (event.originalEvent && event.originalEvent.changedTouches &&
-          event.originalEvent.changedTouches[0]) ||
-        touches[0].originalEvent || touches[0];
+          (event.originalEvent && event.originalEvent.changedTouches &&
+              event.originalEvent.changedTouches[0]) ||
+          touches[0].originalEvent || touches[0];
 
       return {
         x: e.clientX,
@@ -158,6 +163,8 @@
       }
     };
   }]);
+
+  /* global ngTouch: false */
 
   /**
    * @ngdoc directive
@@ -338,11 +345,11 @@
       // Actual linking function.
       return function(scope, element, attr) {
         var clickHandler = $parse(attr.ngClick),
-          tapping = false,
-          tapElement,  // Used to blur the element after a tap.
-          startTime,   // Used to check if the tap was held too long.
-          touchStartX,
-          touchStartY;
+            tapping = false,
+            tapElement,  // Used to blur the element after a tap.
+            startTime,   // Used to check if the tap was held too long.
+            touchStartX,
+            touchStartY;
 
         function resetState() {
           tapping = false;
@@ -379,7 +386,7 @@
           var diff = Date.now() - startTime;
 
           var touches = (event.changedTouches && event.changedTouches.length) ? event.changedTouches :
-            ((event.touches && event.touches.length) ? event.touches : [event]);
+              ((event.touches && event.touches.length) ? event.touches : [event]);
           var e = touches[0].originalEvent || touches[0];
           var x = e.clientX;
           var y = e.clientY;
@@ -431,6 +438,8 @@
       };
     }]);
 
+  /* global ngTouch: false */
+
   /**
    * @ngdoc directive
    * @name ngTouch.directive:ngSwipeLeft
@@ -438,7 +447,8 @@
    * @description
    * Specify custom behavior when an element is swiped to the left on a touchscreen device.
    * A leftward swipe is a quick, right-to-left slide of the finger.
-   * Though ngSwipeLeft is designed for touch-based devices, it will work with a mouse click and drag too.
+   * Though ngSwipeLeft is designed for touch-based devices, it will work with a mouse click and drag
+   * too.
    *
    * Requires the {@link ngTouch `ngTouch`} module to be installed.
    *
@@ -467,7 +477,8 @@
    * @description
    * Specify custom behavior when an element is swiped to the right on a touchscreen device.
    * A rightward swipe is a quick, left-to-right slide of the finger.
-   * Though ngSwipeRight is designed for touch-based devices, it will work with a mouse click and drag too.
+   * Though ngSwipeRight is designed for touch-based devices, it will work with a mouse click and drag
+   * too.
    *
    * Requires the {@link ngTouch `ngTouch`} module to be installed.
    *
@@ -516,10 +527,10 @@
           var deltaY = Math.abs(coords.y - startCoords.y);
           var deltaX = (coords.x - startCoords.x) * direction;
           return valid && // Short circuit for already-invalidated swipes.
-            deltaY < MAX_VERTICAL_DISTANCE &&
-            deltaX > 0 &&
-            deltaX > MIN_HORIZONTAL_DISTANCE &&
-            deltaY / deltaX < MAX_VERTICAL_RATIO;
+              deltaY < MAX_VERTICAL_DISTANCE &&
+              deltaX > 0 &&
+              deltaX > MIN_HORIZONTAL_DISTANCE &&
+              deltaY / deltaX < MAX_VERTICAL_RATIO;
         }
 
         $swipe.bind(element, {

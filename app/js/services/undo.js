@@ -6,12 +6,16 @@ angular.module('app').factory('undo', [function() {
 
   return {
 
-    // get the previously removed object
+    /**
+     * get the previously removed object
+     */
     get: function() {
       return deadObject;
     },
 
-    // save an object to undo tmp storage
+    /**
+     * save an object to undo tmp storage
+     */
     save: function(myObject) {
       // create a copy of the object so we can change it in controller $scope
       objectCopy = angular.copy(myObject);
@@ -20,7 +24,9 @@ angular.module('app').factory('undo', [function() {
       deadObject = objectCopy;
     },
 
-    // empty temporary undo storage
+    /**
+     * empty temporary undo storage
+     */
     clear: function() {
       deadObject = null;
     }

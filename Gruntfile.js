@@ -60,6 +60,12 @@ module.exports = function(grunt) {
         // no specific options needed
       }
     },
+    // unit testing with karma
+    karma: {
+      unit: {
+        configFile: 'test/karma.conf.js'
+      }
+    },
     // copy files from development folders to phonegap www
     copy: {
       main: {
@@ -120,12 +126,16 @@ module.exports = function(grunt) {
 
   // use protractor for e2e testing
   grunt.loadNpmTasks('grunt-protractor-runner');
+  
+  // use karma for unit testing
+  grunt.loadNpmTasks('grunt-karma');
 
   // Default task(s).
   grunt.registerTask('default', ['stylus:web']);
   grunt.registerTask('server', ['stylus:web', 'jade', 'connect']);
   grunt.registerTask('ios', ['stylus:ios', 'jade', 'copy']);
   grunt.registerTask('aws', ['stylus:web', 'jade', 's3']);
-  grunt.registerTask('test', ['protractor']);
+  grunt.registerTask('e2e', ['protractor']);
+  grunt.registerTask('unit', ['karma']);
 
 };
